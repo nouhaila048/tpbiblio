@@ -58,3 +58,29 @@ $l4 = new Livre('9780596007126', 'Algo Avance', 'Cormen');
 $bib->ajouter($l4);
 $res4 = $bib->rechercher('algo');
 verifier(count($res4) === 2, 'rechercher("algo") trouve 2 livres');
+
+// Test statistiques
+$bibStats = new Bibliotheque();
+
+verifier(
+    $bibStats->tauxDisponibilite() === 0.0,
+    'Bibliotheque vide : taux 0%'
+);
+
+$livreA = new Livre('1234567890', 'Livre A', 'Auteur A');
+$livreB = new Livre('1234567891', 'Livre B', 'Auteur B');
+
+$bibStats->ajouter($livreA);
+$bibStats->ajouter($livreB);
+
+verifier(
+    $bibStats->tauxDisponibilite() === 100.0,
+    'Deux livres disponibles : taux 100%'
+);
+
+$livreA->emprunter();
+
+verifier(
+    $bibStats->tauxDisponibilite() === 50.0,
+    'Un livre disponible sur deux : taux 50%'
+);
