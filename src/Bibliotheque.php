@@ -68,4 +68,22 @@ class Bibliotheque
         }
         return $resultats;
     }
+    public function tauxDisponibilite(): float
+{
+    $total = count($this->livres);
+
+    if ($total === 0) {
+        return 0.0;
+    }
+
+    $disponibles = 0;
+
+    foreach ($this->livres as $livre) {
+        if ($livre->estDisponible()) {
+            $disponibles++;
+        }
+    }
+
+    return ($disponibles / $total) * 100;
+}
 }
