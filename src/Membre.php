@@ -34,9 +34,9 @@ class Membre
      */
     public function emprunter(Livre $l): void
     {
-        if (count($this->emprunts) >= 3) {
-            throw new Exception("Le membre {$this->nom} a atteint la limite de 3 emprunts.");
-        }
+        if (count($this->emprunts) >= 5) {
+    throw new Exception("Le membre {$this->nom} a atteint la limite de 5 emprunts.");
+  }
         $l->emprunter();
         $this->emprunts[] = $l;
     }
