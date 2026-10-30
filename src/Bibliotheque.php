@@ -49,9 +49,9 @@ class Bibliotheque
      * Compte le nombre de livres.
      */
     public function compter(): int
-   {
-    return count($this->livres) - 1;
-   }
+    {
+    return count($this->livres);
+    }
 
     /**
      * Recherche des livres par mot-cle dans le titre ou l'auteur (insensible a la casse).
