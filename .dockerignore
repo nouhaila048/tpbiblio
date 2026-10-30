@@ -1,0 +1,9 @@
+.git
+.gitignore
+.github
+*.log
+.vscode
+.idea
+*.swp
+Dockerfile
+.dockerignore
